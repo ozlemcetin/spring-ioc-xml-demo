@@ -26,18 +26,18 @@ public class Organization {
 	private BusinessService businessService;
 
 	// == constructors ==
-	public Organization(String companyName_CP, int yearOfIncorpotation_CP) {
-		this.companyName = companyName_CP;
+	public Organization(String companyName, int yearOfIncorpotation_CP) {
+		this.companyName = companyName;
 		this.yearOfIncorporation = yearOfIncorpotation_CP;
 		System.out.println("parameterized constructor called.");
 
 	}
 
 	// == bean life cycle methods ==
+
 	/*
 	 * <bean id="myorg" class="com.timbuchalka.springdemo.domain.Organization"
-	 * scope="prototype" destroy-method="destroy" init-method="initialize"> ...
-	 * </bean>
+	 * scope="prototype" destroy-method="destroy" init-method="initialize">
 	 */
 
 	/*
@@ -55,6 +55,18 @@ public class Organization {
 
 	public void preDestroy() {
 		System.out.println("Organization : preDestroy method called.");
+	}
+
+	// == static factory methods ==
+
+	/*
+	 * <bean id="myorg" class="com.timbuchalka.springdemo.domain.Organization"
+	 * scope="prototype" factory-method="createInstance">
+	 */
+	public static Organization createInstance(String companyName, int yearOfIncorpotation_CP) {
+		System.out.println("static factory method invoked.");
+		return new Organization(companyName, yearOfIncorpotation_CP);
+
 	}
 
 	// == public methods ==
