@@ -15,4 +15,13 @@ public class EcommerceServiceImpl implements BusinessService {
 		return service;
 	}
 
+	// == bean life cycle methods ==
+	public void postConstruct() {
+		System.out.println("EcommerceServiceImpl : postConstruct method called.");
+	}
+
+	public void preDestroy() {
+		System.out.println("EcommerceServiceImpl : preDestroy method called.");
+	}
+
 }

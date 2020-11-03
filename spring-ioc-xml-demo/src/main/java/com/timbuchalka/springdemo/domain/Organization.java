@@ -29,6 +29,32 @@ public class Organization {
 	public Organization(String companyName_CP, int yearOfIncorpotation_CP) {
 		this.companyName = companyName_CP;
 		this.yearOfIncorporation = yearOfIncorpotation_CP;
+		System.out.println("parameterized constructor called.");
+
+	}
+
+	// == bean life cycle methods ==
+	/*
+	 * <bean id="myorg" class="com.timbuchalka.springdemo.domain.Organization"
+	 * scope="prototype" destroy-method="destroy" init-method="initialize"> ...
+	 * </bean>
+	 */
+
+	/*
+	 * public void initialize() {
+	 * System.out.println("Organization : initialize method called."); }
+	 * 
+	 * public void destroy() {
+	 * System.out.println("Organization : destroy method called."); }
+	 */
+
+	// == bean life cycle methods ==
+	public void postConstruct() {
+		System.out.println("Organization : postConstruct method called.");
+	}
+
+	public void preDestroy() {
+		System.out.println("Organization : preDestroy method called.");
 	}
 
 	// == public methods ==
@@ -48,14 +74,17 @@ public class Organization {
 	// == setters ==
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
+		System.out.println("setPostalCode called.");
 	}
 
 	public void setEmployeeCount(int employeeCount) {
 		this.employeeCount = employeeCount;
+		System.out.println("setEmployeeCount called.");
 	}
 
 	public void setBusinessService(BusinessService businessService) {
 		this.businessService = businessService;
+		System.out.println("setBusinessService called.");
 	}
 
 	@Override
