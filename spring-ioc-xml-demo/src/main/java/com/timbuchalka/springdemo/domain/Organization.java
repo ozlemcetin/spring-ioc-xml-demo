@@ -21,14 +21,16 @@ public class Organization {
 	// == fields ==
 	private String companyName;
 	private int yearOfIncorporation;
-	private String postalCode;
+	private Address address;
 	private int employeeCount;
 	private BusinessService businessService;
 
 	// == constructors ==
-	public Organization(String companyName, int yearOfIncorpotation_CP) {
+	public Organization(String companyName, int yearOfIncorpotation_CP, Address address) {
+		super();
 		this.companyName = companyName;
 		this.yearOfIncorporation = yearOfIncorpotation_CP;
+		this.address = address;
 		System.out.println("parameterized constructor called.");
 
 	}
@@ -49,13 +51,19 @@ public class Organization {
 	 */
 
 	// == bean life cycle methods ==
-	public void postConstruct() {
-		System.out.println("Organization : postConstruct method called.");
-	}
 
-	public void preDestroy() {
-		System.out.println("Organization : preDestroy method called.");
-	}
+	/*
+	 * <beans xmlns="http://www.springframework.org/schema/beans" ...
+	 * default-init-method="postConstruct" default-destroy-method="preDestroy">
+	 */
+
+	/*
+	 * public void postConstruct() {
+	 * System.out.println("Organization : postConstruct method called."); }
+	 * 
+	 * public void preDestroy() {
+	 * System.out.println("Organization : preDestroy method called."); }
+	 */
 
 	// == static factory methods ==
 
@@ -63,11 +71,15 @@ public class Organization {
 	 * <bean id="myorg" class="com.timbuchalka.springdemo.domain.Organization"
 	 * scope="prototype" factory-method="createInstance">
 	 */
-	public static Organization createInstance(String companyName, int yearOfIncorpotation_CP) {
-		System.out.println("static factory method invoked.");
-		return new Organization(companyName, yearOfIncorpotation_CP);
 
-	}
+	/*
+	 * public static Organization createInstance(String companyName, int
+	 * yearOfIncorpotation_CP) { // System.out.println("Organization static
+	 * createInstance factory method // invoked."); return new
+	 * Organization(companyName, yearOfIncorpotation_CP);
+	 * 
+	 * }
+	 */
 
 	// == public methods ==
 	public String staticCorporateSlogan() {
@@ -84,25 +96,24 @@ public class Organization {
 	}
 
 	// == setters ==
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-		System.out.println("setPostalCode called.");
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public void setEmployeeCount(int employeeCount) {
 		this.employeeCount = employeeCount;
-		System.out.println("setEmployeeCount called.");
+		// System.out.println("setEmployeeCount called.");
 	}
 
 	public void setBusinessService(BusinessService businessService) {
 		this.businessService = businessService;
-		System.out.println("setBusinessService called.");
+		// System.out.println("setBusinessService called.");
 	}
 
 	@Override
 	public String toString() {
 		return "Organization [companyName=" + companyName + ", yearOfIncorporation=" + yearOfIncorporation
-				+ ", postalCode=" + postalCode + ", employeeCount=" + employeeCount + ", businessService="
-				+ businessService + "]";
+				+ ", address=" + address + ", employeeCount=" + employeeCount + ", businessService=" + businessService
+				+ "]";
 	}
 }

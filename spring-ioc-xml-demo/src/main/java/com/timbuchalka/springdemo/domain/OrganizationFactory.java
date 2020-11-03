@@ -9,9 +9,9 @@ public class OrganizationFactory {
 	 * scope="prototype" factory-method="Instanetce"
 	 * factory-bean="organizationFactory">
 	 */
-	public Organization getInstance(String companyName, int yearOfIncorpotation_CP) {
-		System.out.println(" factory method invoked.");
-		return new Organization(companyName, yearOfIncorpotation_CP);
+	public Organization getInstance(String companyName, int yearOfIncorpotation_CP, Address address) {
+		System.out.println("OrganizationFactory getInstance factory method invoked.");
+		return new Organization(companyName, yearOfIncorpotation_CP, address);
 
 	}
 

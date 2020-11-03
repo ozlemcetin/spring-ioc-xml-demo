@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-init-method="postConstruct" default-destroy-method="preDestroy">
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- bean -->
 	<bean id="mycity" class="com.timbuchalka.springdemo.domain.City"></bean>
@@ -10,26 +11,28 @@
 	<!-- bean -->
 	<bean id="myorg"
 		class="com.timbuchalka.springdemo.domain.Organization"
-		scope="prototype" factory-method="getInstance"
-		factory-bean="organizationFactory">
+		scope="prototype" c:companyName="Google"
+		c:yearOfIncorpotation_CP="1996" c:address-ref="address"
+		p:employeeCount="127546" p:businessService-ref="ecommerceService">
 
 		<!-- constructor-arg index value -->
-		<constructor-arg index="0" value="Google"></constructor-arg>
+		<!-- <constructor-arg index="0" value="Google"></constructor-arg> -->
 
 		<!-- constructor-arg name value -->
-		<constructor-arg name="yearOfIncorpotation_CP"
-			value="1996"></constructor-arg>
+		<!-- <constructor-arg name="yearOfIncorpotation_CP" value="1996"></constructor-arg> -->
 
 		<!-- property name value -->
-		<property name="postalCode" value="65734"></property>
-
-		<!-- property name value -->
-		<property name="employeeCount">
-			<value>127546</value>
-		</property>
+		<!-- <property name="employeeCount"> <value>127546</value> </property> -->
 
 		<!-- property name ref -->
-		<property name="businessService" ref="ecommerceService"></property>
+		<!-- <property name="businessService" ref="ecommerceService"></property> -->
+	</bean>
+
+	<!-- bean -->
+	<bean id="address"
+		class="com.timbuchalka.springdemo.domain.Address"
+		c:street="Blue Berry Lane" c:city="Los Angeles" c:zipCode="75757">
+
 	</bean>
 
 	<!-- bean -->

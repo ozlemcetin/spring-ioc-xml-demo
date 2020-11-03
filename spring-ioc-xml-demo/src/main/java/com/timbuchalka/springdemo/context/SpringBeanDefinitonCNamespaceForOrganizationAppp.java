@@ -5,12 +5,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.timbuchalka.springdemo.domain.Organization;
 
-public class SingletonPrototypeScopeForOrganizationAppp {
+public class SpringBeanDefinitonCNamespaceForOrganizationAppp {
 
-	/*
-	 * <bean id="myorg" class="com.timbuchalka.springdemo.domain.Organization"
-	 * scope="singleton"> ... </bean>
-	 */
+
 	public static void main(String[] args) {
 
 		// create the application context (container)
@@ -21,19 +18,6 @@ public class SingletonPrototypeScopeForOrganizationAppp {
 
 		// see the created bean
 		System.out.println(org);
-
-		Organization orgAnother = (Organization) ctx.getBean("myorg");
-		orgAnother.setEmployeeCount(178);
-
-		// see the created bean
-		System.out.println(org);
-		System.out.println(orgAnother);
-
-		if (org == orgAnother) {
-			System.out.println("Singletpn Scope Test : Both Org Variables Point to the Same Instance!");
-		} else {
-			System.out.println("Prototype Scope Test : They are Separate Instances!");
-		}
 
 		// close the application context
 		((ClassPathXmlApplicationContext) ctx).close();
