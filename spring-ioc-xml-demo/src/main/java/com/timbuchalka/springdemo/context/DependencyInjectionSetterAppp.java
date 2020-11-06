@@ -1,8 +1,9 @@
 package com.timbuchalka.springdemo.context;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.timbuchalka.springdemo.config.PropertyConfig;
 import com.timbuchalka.springdemo.domain.Organization;
 
 public class DependencyInjectionSetterAppp {
@@ -10,7 +11,7 @@ public class DependencyInjectionSetterAppp {
 	public static void main(String[] args) {
 
 		// create the application context (container)
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-bean-def-in-classpath.xml");
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(PropertyConfig.class);
 
 		// create the bean
 		Organization org = (Organization) ctx.getBean("myorg");
@@ -26,7 +27,7 @@ public class DependencyInjectionSetterAppp {
 		System.out.println(sloganProvided);
 
 		// close the application context
-		((ClassPathXmlApplicationContext) ctx).close();
+		((AnnotationConfigApplicationContext) ctx).close();
 
 	}
 

@@ -13,9 +13,10 @@
 	<!-- bean -->
 	<bean id="myorg"
 		class="com.timbuchalka.springdemo.domain.Organization"
-		scope="prototype" c:companyName="Google"
-		c:yearOfIncorpotation_CP="1996" c:address-ref="address"
-		p:employeeCount="127546" p:businessService-ref="ecommerceService">
+		scope="prototype" c:companyName="${org.companyName}"
+		c:yearOfIncorpotation_CP="${org.yearOfIncorporation}"
+		c:address-ref="address" p:businessService-ref="ecommerceService">
+		<!-- p:employeeCount="${org.employeeCount}" -->
 
 		<!-- constructor-arg index value -->
 		<!-- <constructor-arg index="0" value="Google"></constructor-arg> -->
@@ -38,11 +39,6 @@
 	</bean>
 
 	<!-- bean -->
-	<bean id="organizationFactory"
-		class="com.timbuchalka.springdemo.domain.OrganizationFactory">
-	</bean>
-
-	<!-- bean -->
 	<bean id="cloudService"
 		class="com.timbuchalka.springdemo.serviceimpl.CloudServiceImpl">
 	</bean>
@@ -50,6 +46,11 @@
 	<!-- bean -->
 	<bean id="ecommerceService"
 		class="com.timbuchalka.springdemo.serviceimpl.EcommerceServiceImpl">
+	</bean>
+
+	<!-- bean -->
+	<bean id="organizationFactory"
+		class="com.timbuchalka.springdemo.domain.OrganizationFactory">
 	</bean>
 
 
@@ -79,21 +80,24 @@
 
 	</bean>
 
-	<!-- bean -->
-	<bean id="industrialProduct"
-		class="com.timbuchalka.springdemo.domain.product.IndustrialProduct">
-	</bean>
+	<!-- <bean id="industrialProduct" class="com.timbuchalka.springdemo.domain.product.IndustrialProduct"> 
+		</bean> -->
 
-	<!-- bean -->
-	<bean id="consumerProduct"
-		class="com.timbuchalka.springdemo.domain.product.ConsumerProduct">
-	</bean>
+	<!-- <bean id="consumerProduct" class="com.timbuchalka.springdemo.domain.product.ConsumerProduct"> 
+		</bean> -->
 
-	<!-- bean -->
-	<bean id="tradeFair"
-		class="com.timbuchalka.springdemo.domain.promotion.TradeFair">
-	</bean>
+	<!-- <bean id="tradeFair" class="com.timbuchalka.springdemo.domain.promotion.TradeFair"> 
+		</bean> -->
 
+
+	<!-- annotation-config -->
 	<context:annotation-config></context:annotation-config>
 
+	<!-- component-scan -->
+	<context:component-scan
+		base-package="com.timbuchalka.springdemo"></context:component-scan>
+
+	<!-- property-placeholder -->
+	<context:property-placeholder
+		location="properties/organization.properties" />
 </beans>

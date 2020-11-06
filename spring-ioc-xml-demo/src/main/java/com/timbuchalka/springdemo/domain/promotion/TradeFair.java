@@ -1,25 +1,24 @@
 package com.timbuchalka.springdemo.domain.promotion;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.timbuchalka.springdemo.domain.product.ConsumerProduct;
 import com.timbuchalka.springdemo.domain.product.IndustrialProduct;
 
+@Component
 public class TradeFair {
 
-	@Autowired
 	private IndustrialProduct industrialProduct;
-
-	@Autowired
 	private ConsumerProduct consumerProduct;
 
 	// == constructor ==
 
-//	@Autowired
-//	public TradeFair(IndustrialProduct industrialProduct, ConsumerProduct consumerProduct) {
-//		this.industrialProduct = industrialProduct;
-//		this.consumerProduct = consumerProduct;
-//	}
+	@Autowired
+	public TradeFair(IndustrialProduct industrialProduct, ConsumerProduct consumerProduct) {
+		this.industrialProduct = industrialProduct;
+		this.consumerProduct = consumerProduct;
+	}
 
 	// == setters ==
 

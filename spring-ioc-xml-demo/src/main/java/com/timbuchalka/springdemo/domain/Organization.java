@@ -1,7 +1,13 @@
 package com.timbuchalka.springdemo.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
+
 import com.timbuchalka.springdemo.service.BusinessService;
 
+@Component("myorg")
 public class Organization {
 
 	/*
@@ -19,19 +25,36 @@ public class Organization {
 	 */
 
 	// == fields ==
+
 	private String companyName;
+
 	private int yearOfIncorporation;
+
 	private Address address;
+
+	// @Value("${org.employeeCount}")
 	private int employeeCount;
+
 	private BusinessService businessService;
 
+	@Value("${org.slogan:We build world class software!}")
+	private String slogan;
+
+	private String missionStatement;
+
+	@Autowired
+	private Environment environment;
+
 	// == constructors ==
-	public Organization(String companyName, int yearOfIncorpotation_CP, Address address) {
+
+	@Autowired
+	public Organization(@Value("${org.companyName}") String companyName,
+			@Value("${org.yearOfIncorporation}") int yearOfIncorpotation_CP, Address address) {
 		super();
 		this.companyName = companyName;
 		this.yearOfIncorporation = yearOfIncorpotation_CP;
 		this.address = address;
-		//System.out.println("parameterized constructor called.");
+		// System.out.println("parameterized constructor called.");
 
 	}
 
@@ -83,7 +106,8 @@ public class Organization {
 
 	// == public methods ==
 	public String staticCorporateSlogan() {
-		return "We build the ultimate driving machines!";
+		missionStatement = environment.getProperty("missionStatement");
+		return slogan + " " + missionStatement + " And also we build the ultimate driving machines!";
 	}
 
 	public String provideCorporateSlogan() {
@@ -100,7 +124,12 @@ public class Organization {
 		this.address = address;
 	}
 
-	public void setEmployeeCount(int employeeCount) {
+	/*
+	 * @Autowired is used for the setter injection
+	 */
+
+	@Autowired
+	public void setEmployeeCount(@Value("${org.employeeCount}") int employeeCount) {
 		this.employeeCount = employeeCount;
 		// System.out.println("setEmployeeCount called.");
 	}
