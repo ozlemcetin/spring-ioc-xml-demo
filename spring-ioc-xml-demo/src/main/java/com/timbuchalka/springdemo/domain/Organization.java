@@ -31,7 +31,7 @@ public class Organization {
 		this.companyName = companyName;
 		this.yearOfIncorporation = yearOfIncorpotation_CP;
 		this.address = address;
-		System.out.println("parameterized constructor called.");
+		//System.out.println("parameterized constructor called.");
 
 	}
 

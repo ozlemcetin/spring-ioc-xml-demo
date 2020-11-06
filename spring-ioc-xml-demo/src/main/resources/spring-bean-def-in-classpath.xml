@@ -3,7 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<!-- bean -->
 	<bean id="mycity" class="com.timbuchalka.springdemo.domain.City"></bean>
@@ -76,5 +78,22 @@
 		<property name="deptName" value="Human Resource Department"></property>
 
 	</bean>
+
+	<!-- bean -->
+	<bean id="industrialProduct"
+		class="com.timbuchalka.springdemo.domain.product.IndustrialProduct">
+	</bean>
+
+	<!-- bean -->
+	<bean id="consumerProduct"
+		class="com.timbuchalka.springdemo.domain.product.ConsumerProduct">
+	</bean>
+
+	<!-- bean -->
+	<bean id="tradeFair"
+		class="com.timbuchalka.springdemo.domain.promotion.TradeFair">
+	</bean>
+
+	<context:annotation-config></context:annotation-config>
 
 </beans>
