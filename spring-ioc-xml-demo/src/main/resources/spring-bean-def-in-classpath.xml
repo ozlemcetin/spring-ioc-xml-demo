@@ -24,6 +24,9 @@
 		<!-- constructor-arg name value -->
 		<!-- <constructor-arg name="yearOfIncorpotation_CP" value="1996"></constructor-arg> -->
 
+		<!-- constructor-arg name value -->
+		<!-- <constructor-arg name="postalCode" value="75757"></constructor-arg> -->
+
 		<!-- property name value -->
 		<!-- <property name="employeeCount"> <value>127546</value> </property> -->
 
@@ -39,9 +42,8 @@
 	</bean>
 
 	<!-- bean -->
-	<bean id="cloudService"
-		class="com.timbuchalka.springdemo.serviceimpl.CloudServiceImpl">
-	</bean>
+	<!-- <bean id="cloudService" class="com.timbuchalka.springdemo.serviceimpl.CloudServiceImpl"> 
+		</bean> -->
 
 	<!-- bean -->
 	<bean id="ecommerceService"
@@ -53,16 +55,6 @@
 		class="com.timbuchalka.springdemo.domain.OrganizationFactory">
 	</bean>
 
-
-	<!-- bean -->
-	<bean id="agencyRecruit"
-		class="com.timbuchalka.springdemo.serviceimpl.AgencyRecruitmentServiceImpl">
-	</bean>
-
-	<!-- bean -->
-	<bean id="referralRecruit"
-		class="com.timbuchalka.springdemo.serviceimpl.ReferralRecruitmentServiceImpl">
-	</bean>
 
 	<!-- bean -->
 	<bean id="myhrdept"
@@ -80,13 +72,23 @@
 
 	</bean>
 
+	<!-- bean -->
+	<bean id="agencyRecruit"
+		class="com.timbuchalka.springdemo.serviceimpl.AgencyRecruitmentServiceImpl">
+	</bean>
+
+	<!-- bean -->
+	<bean id="referralRecruit"
+		class="com.timbuchalka.springdemo.serviceimpl.ReferralRecruitmentServiceImpl">
+	</bean>
+
 	<!-- <bean id="industrialProduct" class="com.timbuchalka.springdemo.domain.product.IndustrialProduct"> 
 		</bean> -->
 
 	<!-- <bean id="consumerProduct" class="com.timbuchalka.springdemo.domain.product.ConsumerProduct"> 
 		</bean> -->
 
-	<!-- <bean id="tradeFair" class="com.timbuchalka.springdemo.domain.promotion.TradeFair"> 
+	<!-- <bean id="tradeFair" class="com.timbuchalka.springdemo.domain.product.TradeFair"> 
 		</bean> -->
 
 

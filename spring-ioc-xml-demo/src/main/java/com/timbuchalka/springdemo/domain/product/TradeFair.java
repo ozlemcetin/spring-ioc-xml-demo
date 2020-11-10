@@ -1,10 +1,7 @@
-package com.timbuchalka.springdemo.domain.promotion;
+package com.timbuchalka.springdemo.domain.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.timbuchalka.springdemo.domain.product.ConsumerProduct;
-import com.timbuchalka.springdemo.domain.product.IndustrialProduct;
 
 @Component
 public class TradeFair {

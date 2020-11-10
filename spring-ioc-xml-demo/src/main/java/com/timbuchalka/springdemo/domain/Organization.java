@@ -25,35 +25,40 @@ public class Organization {
 	 */
 
 	// == fields ==
+	private long id;
 
 	private String companyName;
 
 	private int yearOfIncorporation;
 
-	private Address address;
+	private String postalCode;
 
 	// @Value("${org.employeeCount}")
 	private int employeeCount;
 
-	private BusinessService businessService;
-
 	@Value("${org.slogan:We build world class software!}")
 	private String slogan;
 
-	private String missionStatement;
-
 	@Autowired
 	private Environment environment;
+
+	@Autowired
+	private Address address;
+
+	@Autowired
+	private BusinessService businessService;
 
 	// == constructors ==
 
 	@Autowired
 	public Organization(@Value("${org.companyName}") String companyName,
-			@Value("${org.yearOfIncorporation}") int yearOfIncorpotation_CP, Address address) {
+			@Value("${org.yearOfIncorporation}") int yearOfIncorpotation_CP,
+			@Value("${org.postalCode}") String postalCode) {
+
 		super();
 		this.companyName = companyName;
 		this.yearOfIncorporation = yearOfIncorpotation_CP;
-		this.address = address;
+		this.postalCode = postalCode;
 		// System.out.println("parameterized constructor called.");
 
 	}
@@ -106,7 +111,8 @@ public class Organization {
 
 	// == public methods ==
 	public String staticCorporateSlogan() {
-		missionStatement = environment.getProperty("missionStatement");
+
+		String missionStatement = environment.getProperty("missionStatement");
 		return slogan + " " + missionStatement + " And also we build the ultimate driving machines!";
 	}
 
@@ -120,9 +126,6 @@ public class Organization {
 	}
 
 	// == setters ==
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	/*
 	 * @Autowired is used for the setter injection
@@ -134,6 +137,10 @@ public class Organization {
 		// System.out.println("setEmployeeCount called.");
 	}
 
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public void setBusinessService(BusinessService businessService) {
 		this.businessService = businessService;
 		// System.out.println("setBusinessService called.");
@@ -141,8 +148,10 @@ public class Organization {
 
 	@Override
 	public String toString() {
-		return "Organization [companyName=" + companyName + ", yearOfIncorporation=" + yearOfIncorporation
-				+ ", address=" + address + ", employeeCount=" + employeeCount + ", businessService=" + businessService
-				+ "]";
+		return "Organization [id=" + id + ", companyName=" + companyName + ", yearOfIncorporation="
+				+ yearOfIncorporation + ", postalCode=" + postalCode + ", employeeCount=" + employeeCount + ", slogan="
+				+ slogan + ", environment=" + environment + ", address=" + address + ", businessService="
+				+ businessService + "]";
 	}
+
 }

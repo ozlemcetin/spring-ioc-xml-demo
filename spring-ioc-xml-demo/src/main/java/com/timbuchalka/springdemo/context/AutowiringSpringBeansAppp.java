@@ -3,7 +3,7 @@ package com.timbuchalka.springdemo.context;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.timbuchalka.springdemo.domain.promotion.TradeFair;
+import com.timbuchalka.springdemo.domain.product.TradeFair;
 
 public class AutowiringSpringBeansAppp {
 

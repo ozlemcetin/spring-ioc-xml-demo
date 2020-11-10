@@ -8,7 +8,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import com.timbuchalka.springdemo.domain.Address;
 import com.timbuchalka.springdemo.service.BusinessService;
-import com.timbuchalka.springdemo.serviceimpl.CloudServiceImpl;
+import com.timbuchalka.springdemo.serviceimpl.EcommerceServiceImpl;
 
 @Configuration
 @ComponentScan("com.timbuchalka.springdemo")
@@ -22,12 +22,12 @@ public class PropertyConfig {
 
 	@Bean
 	public static Address address() {
-		return new Address("Blue Berry Lane", "Los Angeles" , "75757");
+		return new Address("Property Config Lane", "Los Angeles", "75757");
 	}
 
 	@Bean
-	public static BusinessService cloudService() {
-		return new CloudServiceImpl();
+	public static BusinessService ecommerceService() {
+		return new EcommerceServiceImpl();
 	}
 
 }
